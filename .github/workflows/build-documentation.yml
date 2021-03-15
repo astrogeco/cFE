@@ -30,7 +30,10 @@ jobs:
           path: repo
 
       - name: Check paths
-        run: ls 
+        run: |
+          ls
+          cd cfe
+          git log -1
 
 
       - name: Check versions
