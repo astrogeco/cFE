@@ -32,7 +32,9 @@ jobs:
       - name: Check paths
         run: |
           ls
-          cd cfe
+          pwd
+          cd repo
+          pwd
           git log -1
 
 
