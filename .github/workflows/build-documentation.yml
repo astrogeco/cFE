@@ -23,6 +23,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: nasa/cFS
+          submodules: true
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -33,10 +34,6 @@ jobs:
         run: |
           cd cfe
           git log -1
-
-
-      - name: Check versions
-        run: git submodule
 
       # Setup the build system
       - name: Set up for build
