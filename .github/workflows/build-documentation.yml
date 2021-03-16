@@ -18,17 +18,19 @@ jobs:
       - name: Install Dependencies
         run: sudo apt-get install doxygen graphviz -y
 
-        # Check out the cfs bundle
+      # Check out the cfs bundle
       - name: Checkout bundle
         uses: actions/checkout@v2
         with:
           repository: nasa/cFS
+          persist-credentials: false
           submodules: true
 
       - name: Checkout
         uses: actions/checkout@v2
         with:
           path: cfe
+          persist-credentials: false
 
       - name: Check paths
         run: |
@@ -69,18 +71,25 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-      # Checks out a copy of your repository on the ubuntu-latest machine
-      - name: Checkout code
+      # Check out the cfs bundle
+      - name: Checkout bundle
         uses: actions/checkout@v2
         with:
+          repository: nasa/cFS
+          persist-credentials: false
           submodules: true
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: cfe
           persist-credentials: false
 
       # Setup the build system
       - name: Copy Files
         run: |
-          cp ./cmake/Makefile.sample Makefile
-          cp -r ./cmake/sample_defs sample_defs
+          cp ./cfe/cmake/Makefile.sample Makefile
+          cp -r ./cfe/cmake/sample_defs sample_defs
 
       # Setup the build system
       - name: Make Prep
@@ -151,18 +160,25 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-      # Checks out a copy of your repository on the ubuntu-latest machine
-      - name: Checkout code
+      # Check out the cfs bundle
+      - name: Checkout bundle
         uses: actions/checkout@v2
         with:
+          repository: nasa/cFS
+          persist-credentials: false
           submodules: true
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: cfe
           persist-credentials: false
 
       # Setup the build system
       - name: Copy Files
         run: |
-          cp ./cmake/Makefile.sample Makefile
-          cp -r ./cmake/sample_defs sample_defs
+          cp ./cfe/cmake/Makefile.sample Makefile
+          cp -r ./cfe/cmake/sample_defs sample_defs
 
       # Setup the build system
       - name: Make Prep
