@@ -41,11 +41,11 @@ jobs:
       - name: Checkout cFE
         uses: actions/checkout@v2
         with:
-          path: repo
+          path: cfe
 
       - name: Check versions
         run: |
-          cd repo
+          cd cfe
           git rev-list -1 HEAD
 
       # Setup the build system
@@ -53,8 +53,8 @@ jobs:
         run: |
           pwd
           ls
-          cp ./repo/cmake/Makefile.sample Makefile
-          cp -r ./repo/cmake/sample_defs sample_defs
+          cp ./cfe/cmake/Makefile.sample Makefile
+          cp -r ./cfe/cmake/sample_defs sample_defs
           make prep
 
       - name: Build Docs
