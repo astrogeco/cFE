@@ -44,7 +44,9 @@ jobs:
           path: repo
 
       - name: Check versions
-        run: git rev-list -1 HEAD
+        run: |
+          cd repo
+          git rev-list -1 HEAD
 
       # Setup the build system
       - name: Set up for build
