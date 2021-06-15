@@ -45,8 +45,8 @@ jobs:
       # Setup the build system
       - name: Set up for build
         run: |
-          cp ./cfe/cmake/Makefile.sample Makefile
-          cp -r ./cfe/cmake/sample_defs sample_defs
+          cp ./cmake/Makefile.sample Makefile
+          cp -r ./cmake/sample_defs sample_defs
           make prep
 
       - name: Build Docs
