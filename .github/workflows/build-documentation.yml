@@ -38,8 +38,10 @@ jobs:
         run: sudo apt-get install doxygen graphviz -y
 
       # Check out the cfs bundle
-      - name: Checkout bundle
+      - name: Checkout cFE
         uses: actions/checkout@v2
+        with:
+          path: repo
 
       - name: Check versions
         run: git rev-list -1 HEAD
@@ -49,8 +51,8 @@ jobs:
         run: |
           pwd
           ls
-          cp ./cFE/cmake/Makefile.sample Makefile
-          cp -r ./cFE/cmake/sample_defs sample_defs
+          cp ./repo/cmake/Makefile.sample Makefile
+          cp -r ./repo/cmake/sample_defs sample_defs
           make prep
 
       - name: Build Docs
