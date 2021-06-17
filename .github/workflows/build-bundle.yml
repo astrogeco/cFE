@@ -1,0 +1,29 @@
+name: Build, Test, and Run [OMIT_DEPRECATED=true]
+
+# Run this workflow every time a new commit pushed to your repository
+on: push
+
+env:
+  SIMULATION: native
+  ENABLE_UNIT_TESTS: true
+  OMIT_DEPRECATED: true
+
+jobs:
+
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+
+  build-cfs:
+    name: Build
+    runs-on: ubuntu-18.04
+
+    # Set the type of machine to run on
+    env:
+      BUILDTYPE: ${{ matrix.buildtype }}
+
+    steps:
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: astrogeco/cfs@create-custom-action
+        with:
+          sub: true
